@@ -10,6 +10,7 @@ RELEASE="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
 sudo mkdir -p /opt/bin
 curl -L --remote-name-all https://storage.googleapis.com/kubernetes-release/release/${RELEASE}/bin/linux/amd64/{kubeadm,kubelet,kubectl}
 chmod +x {kubeadm,kubelet,kubectl}
+sudo mv * /opt/bin
 curl -sSL "https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/kubelet.service" | sed "s:/usr/bin:/opt/bin:g" > kubelet.service
 sudo mv kubelet.service /etc/systemd/system/
 sudo mkdir -p /etc/systemd/system/kubelet.service.d
