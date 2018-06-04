@@ -16,3 +16,4 @@ sudo mv kubelet.service /etc/systemd/system/
 sudo mkdir -p /etc/systemd/system/kubelet.service.d
 curl -sSL "https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/10-kubeadm.conf" | sed "s:/usr/bin:/opt/bin:g" > 10-kubeadm.conf
 sudo mv 10-kubeadm.conf /etc/systemd/system/kubelet.service.d/
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.27.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
